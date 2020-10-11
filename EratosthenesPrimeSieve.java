@@ -5,6 +5,8 @@
  */
 package eratosthenesprimesieve;
 
+import java.util.Scanner;
+
 /**
  *
  * @author Reisinger
@@ -12,7 +14,21 @@ package eratosthenesprimesieve;
 public class EratosthenesPrimeSieve implements PrimeSieve {
 
     public static void main(String[] args) {
-        
+        EratosthenesPrimeSieve e = new EratosthenesPrimeSieve();
+        Scanner sc = new Scanner(System.in);
+        int obergrenze = Integer.parseInt(sc.nextLine());
+        for (int r = 4; r <= obergrenze; r++) {
+            if (r % 2== 0) {
+                for (int y = 2; y < r; y++) {
+                    int tmp = r - y;
+                    if (e.isPrime(tmp) == true) 
+                    {
+                        System.out.println(r + " Summe : " + r + " = " + y + "+" + tmp);
+                        break;
+                    }
+                }
+            }
+        }
     }
 
     @Override
@@ -31,6 +47,6 @@ public class EratosthenesPrimeSieve implements PrimeSieve {
 
     @Override
     public void printPrimes() {
-
+        
     }
 }
