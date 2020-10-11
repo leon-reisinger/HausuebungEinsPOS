@@ -9,13 +9,28 @@ package eratosthenesprimesieve;
  *
  * @author Reisinger
  */
-public class EratosthenesPrimeSieve {
+public class EratosthenesPrimeSieve implements PrimeSieve {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        // TODO code application logic here
+        
     }
-    
+
+    @Override
+    public boolean isPrime(int p) {
+        if (p <= 1) {
+            return false;
+        }
+
+        for (int i = 2; i < p; i++) {
+            if (p % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    @Override
+    public void printPrimes() {
+
+    }
 }
